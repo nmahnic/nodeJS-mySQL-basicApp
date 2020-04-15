@@ -1,0 +1,27 @@
+{
+  "name": "nodeJS-mySQL-basicApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mash94/nodeJS-mySQL-basicApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mash94/nodeJS-mySQL-basicApp/issues"
+  },
+  "homepage": "https://github.com/Mash94/nodeJS-mySQL-basicApp#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
