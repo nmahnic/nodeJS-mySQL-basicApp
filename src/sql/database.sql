@@ -15,6 +15,9 @@ INSERT INTO news(title,news) values ('my title','content of the news');
 
 SELECT * FROM news;
 
+DELETE FROM news where id_news = 8;
+DELETE FROM news where title="oko";
+
 /*
 service mysqld status
 service mysqld stop

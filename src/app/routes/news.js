@@ -4,7 +4,7 @@ module.exports = app => {
 
   const connection = dbConnection();
 
-  app.get('/news', (req, res) => {
+  app.get('/', (req, res) => {
     connection.query('SELECT * FROM news', (err, result) => {
       console.log(result);
       res.render('news/news', {
@@ -13,7 +13,7 @@ module.exports = app => {
     });
   });
 
-  app.post('/news', (req, res) => {
+  app.post('/add', (req, res) => {
     const { title, news } = req.body;
     connection.query('INSERT INTO news SET ? ',
       {
@@ -21,7 +21,27 @@ module.exports = app => {
         news
       }
     , (err, result) => {
-      res.redirect('/news');
+      res.redirect('/');
     });
+  });
+  app.post('/del', (req, res) => {
+    const {id, title, news } = req.body;
+
+    console.log("id:",id," title: ",title," news: ",news);
+    if(id != ""){
+      console.log("ID entre");
+      connection.query(`DELETE FROM news where id_news = ${id};` , (err, result) => {
+        res.redirect('/');
+      });
+    }else if (title != ""){
+      console.log("title entre");
+      connection.query(`DELETE FROM news where title = '${title}';` , (err, result) => {
+        res.redirect('/');
+      });
+    }else if (news != ""){
+      connection.query(`DELETE FROM news where news = '${news}';` , (err, result) => {
+        res.redirect('/');
+      });
+    }
   });
 };
